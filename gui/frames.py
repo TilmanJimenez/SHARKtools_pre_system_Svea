@@ -869,9 +869,9 @@ class FrameSelectInstrument(tk.Frame, SaveSelection):
         self._saves_id_key = 'FrameSelectInstrument'
 
         self._build_frame()
-        self._add_subscribers()
         self.load_selection()
 
+        self._add_subscribers()
     def _add_subscribers(self):
         subscribe('select_instrument', self._on_select_instrument)
         subscribe('change_config_path', self._on_change_config_path)
@@ -882,6 +882,7 @@ class FrameSelectInstrument(tk.Frame, SaveSelection):
     def _build_frame(self):
         layout = dict(padx=5, pady=5, sticky='nsew')
 
+        self._frame_info = SelectionInfoFrame(self, self.controller)
         self._frame_instrument_buttons = FrameInstrumentButtons(self, self.controller)
         self._frame_instrument_buttons.grid(row=0, column=0, **layout)
 
@@ -897,7 +898,6 @@ class FrameSelectInstrument(tk.Frame, SaveSelection):
 
         ttk.Separator(self, orient='horizontal').grid(row=1, column=0, columnspan=3, sticky='ew')
 
-        self._frame_info = SelectionInfoFrame(self, self.controller)
         self._frame_info.grid(row=2, column=0, columnspan=3, sticky='nsew')
 
         option_frame = tk.Frame(self)
@@ -945,6 +945,10 @@ class FrameSelectInstrument(tk.Frame, SaveSelection):
                                           pump2=self._pump_2))
 
     def _on_change_config_path(self, ok):
+        self._frame_info.reset_info()
+        self._sensor_table.reset_data()
+        self._frame_instrument_buttons._build_frame()
+
         if not ok:
             self._frame_instrument_buttons.deselect()
             return
@@ -1123,11 +1127,10 @@ class SelectionInfoFrame(tk.Frame, SaveSelection):
         if not directory:
             return
         ok = self._set_config_root_directory(directory)
+        self.reset_info()
         if ok:
             self.save_selection()
             self.update_info()
-        else:
-            self.reset_info()
         post_event('change_config_path', ok)
 
     def _on_click_data_local(self, event=None):
@@ -1169,7 +1172,7 @@ class SelectionInfoFrame(tk.Frame, SaveSelection):
         if instrument:
             self.latest_instrument = instrument
         self.reset_info()
-        if not self.latest_instrument:
+        if not self.latest_instrument or self.latest_instrument not in self.controller.ctd_config.seasave_xmlcon_files:
             return
         nr = self.controller.get_instrument_serial_number(self.latest_instrument)
         ctd_str = f'{self.latest_instrument} ({nr})'
@@ -1268,45 +1271,32 @@ class FrameInstrumentButtons(tk.Frame, SaveSelection):
         self._instrument_type = {}
 
         self._selections_to_store = ['directory_config', 'directory_data']
-
+        self.load_selection()
         self._build_frame()
 
-        self.load_selection()
-
-
     def _build_frame(self):
-
         frame = tk.Frame(self)
         frame.grid(row=0, column=0, sticky='nw')
         tkw.grid_configure(self)
 
         layout = dict(padx=5, pady=5, sticky='nw')
 
+        if self.buttons:
+            for button in self.buttons.values():
+                button.destroy()
+        self.buttons = dict()
+
         tk.Label(frame, text='Välj CTD:').grid(row=0, column=0, **layout)
-
         width = 10
+        button_list = self.controller.ctd_config.seasave_xmlcon_files.keys()
+        for i, button in enumerate(button_list):
+            self.buttons[button] = tk.Button(frame, text=button, width=width,
+                                              command=lambda name=button: self._on_select_instrument(name))
+            self.buttons[button].grid(row=i+1, column=0, **layout)
 
-        self.buttons['SBE09'] = tk.Button(frame, text='SBE09', width=width,
-                                          command=lambda name='SBE09': self._on_select_instrument(name))
-        self.buttons['SBE09'].grid(row=1, column=0, **layout)
-
-        self.buttons['SBE19'] = tk.Button(frame, text='SBE19', width=width,
-                                          command=lambda name='SBE19': self._on_select_instrument(name))
-        self.buttons['SBE19'].grid(row=2, column=0, **layout)
-
-        # tk.Label(frame, text='(Stationära CTD-kast)').grid(row=0, column=3, **layout)
-
-        self.buttons['MVP200'] = tk.Button(frame, text='MVP200', width=width,
-                                           command=lambda name='MVP200': self._on_select_instrument(name))
-        self.buttons['MVP200'].grid(row=3, column=0, **layout)
-        self.buttons['MVP200'].config(state='disabled')
-
-        self.buttons['Triaxus'] = tk.Button(frame, text='Triaxus', width=width,
-                                            command=lambda name='Triaxus': self._on_select_instrument(name))
-        self.buttons['Triaxus'].grid(row=4, column=0, **layout)
-        self.buttons['Triaxus'].config(state='disabled')
-
-        self.button_unselected_color = self.buttons['SBE09'].cget('bg')
+            #self.buttons['MVP200'].config(state='disabled')
+        if button_list:
+            self.button_unselected_color = 'SystemButtonFace'
 
         # tk.Label(frame, text='(CTD-transekt)').grid(row=1, column=3, **layout)
 
