@@ -1,0 +1,70 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+msgid "Cruise"
+msgstr "cruise"
+
+msgid "Plot depth"
+msgstr "plot depth"
+
+msgid "Bottendjup (m): "
+msgstr "bottom depth (m)"
+
+msgid "FloatEntry"
+msgstr "float_entry"
+
+msgid "Vessel"
+msgstr "vessel"
+
+msgid "Directory"
+msgstr "directory"
+
+msgid "Vald {}: {} ({})"
+msgstr "chosen {}: {} ({})"
+
+msgid "Användare"
+msgstr "user"
+
+msgid "Series"
+msgstr "series"
+
+msgid "Soak"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Deep"
+msgstr ""
+
+msgid "Shallow"
+msgstr ""
+
+msgid "Parameter"
+msgstr ""
+
+msgid "Sensor ID"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "New station"
+msgstr ""
+
+msgid "Lat"
+msgstr ""
+
+msgid "Lon"
+msgstr ""
+
+msgid "Position is:"
+msgstr ""
+
+
