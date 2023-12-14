@@ -13,7 +13,9 @@ from ..events import subscribe
 from .. import saves
 
 import sharkpylib.tklib.tkinter_widgets as tkw
+from .locales import Translator
 
+_ = Translator('components', 'en').lang.gettext
 
 class AutocompleteCombobox(ttk.Combobox):
     """
@@ -525,7 +527,7 @@ class CruiseLabelDoubleEntry(LabelDoubleEntry):
 
     def __init__(self, *args, **kwargs):
         if not kwargs.get('title'):
-            kwargs['title'] = 'Cruise'
+            kwargs['title'] = _('Cruise')
         super().__init__(*args, **kwargs)
         self._modify()
 
@@ -627,7 +629,7 @@ class DepthEntry(tk.Frame, Common):
                  parent,
                  id,
                  width=8,
-                 title='Plot depth',
+                 title=_('Plot depth'),
                  state='normal',
                  data_type=None,
                  **kwargs):
@@ -643,7 +645,7 @@ class DepthEntry(tk.Frame, Common):
         self.data_type = data_type
         self.state = state
 
-        self._bottom_depth_string_base = 'Bottendjup (m): '
+        self._bottom_depth_string_base = _('Bottendjup (m): ')
         self._bottom_depth = None
         self.step = None
 
@@ -749,7 +751,7 @@ class FloatEntry(tk.Frame, Common):
                  parent,
                  id,
                  width=8,
-                 title='FloatEntry',
+                 title=_('FloatEntry'),
                  state='normal',
                  min_value=None,
                  max_value=None,
@@ -927,7 +929,7 @@ class VesselLabelDoubleEntry(LabelDoubleEntry):
 
     def __init__(self, *args, **kwargs):
         if not kwargs.get('title'):
-            kwargs['title'] = 'Vessel'
+            kwargs['title'] = _('Vessel')
         super().__init__(*args, **kwargs)
         self._modify()
 
@@ -961,7 +963,7 @@ class SelectDirectory(tk.Frame, Common):
     def __init__(self,
                  parent,
                  id,
-                 title='Directory',
+                 title=_('Directory'),
                  width=40,
                  state='disabled',
                  **kwargs):
@@ -1057,7 +1059,7 @@ class SelectedInstrumentTextFrame(tk.Frame, Common):
         self._set_text()
 
     def _set_text(self):
-        string = f'Vald {self._instrument_type}: {self.instrument} ({self.controller.get_instrument_serial_number(self.instrument)})'
+        string = _('Vald {}: {} ({})').format(self._instrument_type, self.instrument,self.controller.get_instrument_serial_number(self.instrument))
         self._stringvar.set(string)
 
     def get(self):
@@ -1090,7 +1092,7 @@ class SelectedDefaultUserTextFrame(tk.Frame, Common):
 
         # self._stringvar = tk.StringVar()
 
-        MonospaceLabel(self, text='Användare').grid(column=0, padx=5, pady=5, sticky='w')
+        MonospaceLabel(self, text=_('Användare')).grid(column=0, padx=5, pady=5, sticky='w')
 
         self.user_selection_widget = tkw.ComboboxWidget(self, items=self._default_users, row=0, column=1,
                                                         padx=5, pady=5, sticky='w')
@@ -1116,7 +1118,7 @@ class SeriesEntryPicker(tk.Frame, Common):
                  id,
                  width=10,
                  include_arrows=True,
-                 title='Series',
+                 title=_('Series'),
                  **kwargs):
 
         self.grid_frame = {'padx': 5,
@@ -1272,13 +1274,13 @@ class SurfaceSoakSelector(tk.Frame, Common):
         layout = dict(padx=5,
                       pady=5,
                       sticky='nsew')
-        self.monospace_label = MonospaceLabel(self, text='Soak')
+        self.monospace_label = MonospaceLabel(self, text=_('Soak'))
         self.monospace_label.grid(column=0, **layout)
-        self.buttons['normal'] = tk.Button(self, text='Normal', command=lambda x='normal': self._on_select_button(x))
+        self.buttons['normal'] = tk.Button(self, text=_('Normal'), command=lambda x='normal': self._on_select_button(x))
         self.buttons['normal'].grid(row=0, column=1, **layout)
-        self.buttons['deep'] = tk.Button(self, text='Deep', command=lambda x='deep': self._on_select_button(x))
+        self.buttons['deep'] = tk.Button(self, text=_('Deep'), command=lambda x='deep': self._on_select_button(x))
         self.buttons['deep'].grid(row=0, column=2, **layout)
-        self.buttons['shallow'] = tk.Button(self, text='Shallow', command=lambda x='shallow': self._on_select_button(x))
+        self.buttons['shallow'] = tk.Button(self, text=_('Shallow'), command=lambda x='shallow': self._on_select_button(x))
         self.buttons['shallow'].grid(row=0, column=3, **layout)
 
         self.button_unselected_color = self.buttons['normal'].cget('bg')
@@ -1377,9 +1379,9 @@ class SensorTableOld(tk.Frame, Common):
 
         column_width = [10, 10, 5]
 
-        tk.Button(frame, text='Parameter', width=column_width[0], command=lambda x='parameter': self._sort_by(x)).grid(row=0, column=0, **layout)
-        tk.Button(frame, text='Sensor ID', width=column_width[1], command=lambda x='sensor_id': self._sort_by(x)).grid(row=0, column=1, **layout)
-        tk.Button(frame, text='Status', width=column_width[2], command=lambda x='status': self._sort_by(x)).grid(row=0, column=2, **layout)
+        tk.Button(frame, text=_('Parameter'), width=column_width[0], command=lambda x='parameter': self._sort_by(x)).grid(row=0, column=0, **layout)
+        tk.Button(frame, text=_('Sensor ID'), width=column_width[1], command=lambda x='sensor_id': self._sort_by(x)).grid(row=0, column=1, **layout)
+        tk.Button(frame, text=_('Status'), width=column_width[2], command=lambda x='status': self._sort_by(x)).grid(row=0, column=2, **layout)
 
         self._stringvar_par = []
         self._stringvar_sensor_id = []
@@ -1627,7 +1629,7 @@ class LabelCheckbox(tk.Frame, Common):
     def __init__(self,
                  parent,
                  id,
-                 title='New station', 
+                 title=_('New station'),
                  **kwargs):
 
         self.grid_frame = {'padx': 5,
@@ -1677,9 +1679,9 @@ class PositionEntries(tk.Frame, Common):
                  width=8,
                  **kwargs):
 
-        self._lat_text = kwargs.pop('lat_text', 'Lat')
-        self._lon_text = kwargs.pop('lon_text', 'Lon')
-        self._info_text = kwargs.pop('info_text', 'Position is:')
+        self._lat_text = kwargs.pop('lat_text', _('Lat'))
+        self._lon_text = kwargs.pop('lon_text', _('Lon'))
+        self._info_text = kwargs.pop('info_text', _('Position is:'))
         self.grid_frame = {'padx': 5,
                            'pady': 5,
                            'sticky': 'nsew'}

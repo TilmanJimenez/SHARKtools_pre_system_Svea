@@ -3,9 +3,11 @@
 
 from . import gui
 from .app import App
+from .gui.locales import Translator
 
+_ = Translator('init', 'en').lang.gettext
 
-INFO = dict(title='Svea Försystem',
+INFO = dict(title=_('Svea Försystem'),
             users_directory='users',
             sub_pages=[],
             user_page_class='PageUser')  # Must match name in ALL_PAGES in main app

@@ -1,0 +1,172 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Sökväg till inloggningsuppgifter till Svepa"
+msgstr "search path to login credentials for Svepa"
+
+msgid "Ladda information från SVEPA"
+msgstr "load information from SVEPA"
+
+msgid "Starta Seasave"
+msgstr "start Seasave"
+
+msgid "Gå till enkel processering"
+msgstr "go to simple processing"
+
+msgid "Gå till avancerad processering"
+msgstr "go to advanced processing"
+
+msgid "Station hittad"
+msgstr "station found"
+
+msgid "Positionen ({}, {}) matchar station: {}\nAvståndet till stationen är: {} meter."
+msgstr "the position ({}, {}) matches station: {}\ndistance to station is: {} meter"
+
+msgid "Ingen station matchar positionen"
+msgstr "no station matches the position"
+
+msgid "Position: ({}, {})\n"
+msgstr "position: ({}, {})\n"
+
+msgid "Närmaste station är {}\n"
+msgstr "nearest station is {}\n"
+
+msgid "Avståndet till stationen är: {} meter.\n"
+msgstr "distance to station is: {} meter\n"
+
+msgid "Är detta en ny station?"
+msgstr "Is this a new station?"
+
+msgid "Skapar testfil"
+msgstr "create testfile"
+
+msgid "Vill du skapa en testfil?"
+msgstr "Would you like to create a testfile?"
+
+msgid "Kan inte köra Seasave!\nFöljande information saknas:\n\n{}"
+msgstr "Cannot start Seasave!\nThe following information are missing: \n\n{}"
+
+msgid "Det körs redan en instans av Seasave!"
+msgstr "An instance of Seasave is already running!"
+
+msgid "Något gick fel!\n{}\n{}\n\n{}\n{}"
+msgstr "Something went wrong!\n{}\n{}\n\n{}\n{}"
+
+msgid "Ingen inloggningsuppgifter till svepa angivna!"
+msgstr "Login credentials for Svepa are missing!"
+
+msgid "Ingen information från Svepa"
+msgstr "No information from Svepa"
+
+msgid "Cruise"
+msgstr "cruise"
+
+msgid "Series"
+msgstr "series"
+
+msgid "Transect"
+msgstr "transect"
+
+msgid "Operator"
+msgstr "operator"
+
+msgid "Vessel"
+msgstr "vessel"
+
+msgid "New transect"
+msgstr "new transect"
+
+msgid "Primär pump SBE5"
+msgstr "primary pump"
+
+msgid "Sekundär pump SBE5"
+msgstr "secondary pump"
+
+msgid "Jag har kontrollerat sensoruppsättningen!"
+msgstr "I have checked the sensor settings!"
+
+msgid "Kontrollera pump-id"
+msgstr "please check the pump-id"
+
+msgid "Information om pump/pumpar saknas"
+msgstr "information about the pump/pumps is/are missing"
+
+msgid "Primär och sekundär pump kan inte vara samma"
+msgstr "primary and secondary pump cannot have the same serial number"
+
+msgid "Rotkatalog saknas!"
+msgstr "root path is missing"
+
+msgid "Du måste ange rotkatalog för config och data"
+msgstr "you have to provide a root path for config files and data"
+
+msgid "Något gick fel!"
+msgstr "Something went wrong!"
+
+msgid "Senaste kastet på servern:"
+msgstr "latest cast on the server:"
+
+msgid "Uppdatera"
+msgstr "update"
+
+msgid "Fil som kommer skapas:"
+msgstr "file to be created:"
+
+msgid "För lite information"
+msgstr "too little information"
+
+msgid "Rotkatalog för configfiler:"
+msgstr "root path for config files:"
+
+msgid "Sparar råfiler till mapp:"
+msgstr "save raw files to folder:"
+
+msgid "Spara processerad data på server:"
+msgstr "save processed data on server:"
+
+msgid "Vald CTD:"
+msgstr "chosen CTD:"
+
+msgid "Sökväg XMLCON:"
+msgstr "search path to XMLCON:"
+
+msgid "Sökväg seasave.psa:"
+msgstr "search path to seasave.psa:"
+
+msgid "Rotkatalog för lokal data"
+msgstr "root path for local data"
+
+msgid "Rotkatalog för data på servern"
+msgstr "root path for data on the server"
+
+msgid "Fel i sökväg"
+msgstr "error in search path"
+
+msgid "Kan inte hitta rätt sökväg: \n{}"
+msgstr "Cannot find correct search path: \n{}"
+
+msgid "Val av instrument"
+msgstr "choice of instrument"
+
+msgid "Rotkatalogens struktur för configfiler verkar inte stämma: \n{}"
+msgstr "root directory structure for config files seems to be incorrect: \n{}"
+
+msgid "Sätt lokal data"
+msgstr "Set local data"
+
+msgid "Ingen mapp för lokal data vald!"
+msgstr "No folder chosen for local data!"
+
+msgid "Något gick fel när rotkatalogen för lokal data skulle sättas: \n{}"
+msgstr "Something went wrong when setting the root directory for local data: \n{}"
+
+msgid "Något gick fel när rotkatalogen för data på servern skulle sättas: \n{}"
+msgstr "Something went wrong when setting the root directory for data on the server: \n{}"
+
+msgid "Välj CTD:"
+msgstr "choose CTD:"
