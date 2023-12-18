@@ -1,37 +1,39 @@
+from .locales import Translator as langT
 
+_ = langT('translator_toEnglish', 'en').lang.gettext
 
 class Translator:
-    names = {'depth': 'Maxdjup i plot (m)',
-             'bin_size': 'Djupgrid (m)',
-             'cruise': 'Expedition nr',
-             'vessel': 'Fartyg',
-             'series': 'Serie',
-             'tail': 'Testkast',
-             'station': 'Station',
-             'distance': 'Avstånd till station (m)',
-             'operator': 'CTD operatör',
-             'position': 'Position',
-             'event_id': 'EventID      ',
-             'parent_event_id': 'ParentEventID',
+    names = {'depth': _('Maxdjup i plot (m)'),
+             'bin_size': _('Djupgrid (m)'),
+             'cruise': _('Expedition nr'),
+             'vessel': _('Fartyg'),
+             'series': _('Serie'),
+             'tail': _('Testkast'),
+             'station': _('Station'),
+             'distance': _('Avstånd till station (m)'),
+             'operator': _('CTD operatör'),
+             'position': _('Position'),
+             'event_id': _('EventID      '),
+             'parent_event_id': _('ParentEventID'),
 
-             'mprog':   'Övervakningsprogram',
-             'proj':    'Projekt',
-             'orderer': 'Beställare',
-             'slabo':   'Provtagande laboratorium',
-             'alabo':   'Analyserande laboratorium',
-             'refsk':   'Provtagningsmetod referens',
+             'mprog':   _('Övervakningsprogram'),
+             'proj':    _('Projekt'),
+             'orderer': _('Beställare'),
+             'slabo':   _('Provtagande laboratorium'),
+             'alabo':   _('Analyserande laboratorium'),
+             'refsk':   _('Provtagningsmetod referens'),
 
-             'wadep_bot': 'Bottendjupet ska vara [m]',
-             'wadep': 'Ekolodsdjup vid station [m]',
-             'windir': 'Vindriktning',
-             'winsp': 'Vindhastighet [m/s]',
-             'airtemp': 'Lufttemperatur [grader C]',
-             'airpres': 'Lufttryck [hPa]',
-             'weath': 'Väder [kod]',
-             'cloud': 'Moln [kod]',
-             'waves': 'Vågor [kod]',
-             'iceob': 'Is [kod]',
-             'comment': 'CTD kommentar'}
+             'wadep_bot': _('Bottendjupet ska vara [m]'),
+             'wadep': _('Ekolodsdjup vid station [m]'),
+             'windir': _('Vindriktning'),
+             'winsp': _('Vindhastighet [m/s]'),
+             'airtemp': _('Lufttemperatur [grader C]'),
+             'airpres': _('Lufttryck [hPa]'),
+             'weath': _('Väder [kod]'),
+             'cloud': _('Moln [kod]'),
+             'waves': _('Vågor [kod]'),
+             'iceob': _('Is [kod]'),
+             'comment': _('CTD kommentar')}
 
     def __init__(self):
         self.reversed_names = {value: key for key, value in self.names.items()}

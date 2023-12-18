@@ -35,36 +35,36 @@ msgid "Series"
 msgstr "series"
 
 msgid "Soak"
-msgstr ""
+msgstr "soak"
 
 msgid "Normal"
-msgstr ""
+msgstr "normal"
 
 msgid "Deep"
-msgstr ""
+msgstr "deep"
 
 msgid "Shallow"
-msgstr ""
+msgstr "shallow"
 
 msgid "Parameter"
-msgstr ""
+msgstr "parameter"
 
 msgid "Sensor ID"
-msgstr ""
+msgstr "sensor ID"
 
 msgid "Status"
-msgstr ""
+msgstr "status"
 
 msgid "New station"
-msgstr ""
+msgstr "new station"
 
 msgid "Lat"
-msgstr ""
+msgstr "lat"
 
 msgid "Lon"
-msgstr ""
+msgstr "lon"
 
 msgid "Position is:"
-msgstr ""
+msgstr "position is:"
 
 

@@ -1,0 +1,98 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+msgid "Maxdjup i plot (m)"
+msgstr "max depth in plot (m)"
+
+msgid "Djupgrid (m)"
+msgstr "grid spacing (m)"
+
+msgid "Expedition nr"
+msgstr "expedition nb"
+
+msgid "Fartyg"
+msgstr "vessel"
+
+msgid "Serie"
+msgstr "series"
+
+msgid "Testkast"
+msgstr "test cast"
+
+msgid "Station"
+msgstr "station"
+
+msgid "Avstånd till station (m)"
+msgstr "distance to station (m)"
+
+msgid "CTD operatör"
+msgstr "CTD operator"
+
+msgid "Position"
+msgstr "position"
+
+msgid "EventID      "
+msgstr "event ID"
+
+msgid "ParentEventID"
+msgstr "parent event ID"
+
+msgid "Övervakningsprogram"
+msgstr "monitoring program"
+
+msgid "Projekt"
+msgstr "project"
+
+msgid "Beställare"
+msgstr "orderer"
+
+msgid "Provtagande laboratorium"
+msgstr "laboratory for sampling"
+
+msgid "Analyserande laboratorium"
+msgstr "laboratory for analysis"
+
+msgid "Provtagningsmetod referens"
+msgstr "reference to sampling method"
+
+msgid "Bottendjupet ska vara [m]"
+msgstr "depth should be (m)"
+
+msgid "Ekolodsdjup vid station [m]"
+msgstr "sonar depth at station (m)"
+
+msgid "Vindriktning"
+msgstr "wind direction"
+
+msgid "Vindhastighet [m/s]"
+msgstr "wind speed (m/s)"
+
+msgid "Lufttemperatur [grader C]"
+msgstr "air temperature (degree C)"
+
+msgid "Lufttryck [hPa]"
+msgstr "air pressure (hPa)"
+
+msgid "Väder [kod]"
+msgstr "weather (code)"
+
+msgid "Moln [kod]"
+msgstr "cloudiness (code)"
+
+msgid "Vågor [kod]"
+msgstr "wave height (code)"
+
+msgid "Is [kod]"
+msgstr "ice condition (code)"
+
+msgid "CTD kommentar"
+msgstr "CTD comment"
+
+
+

@@ -14,7 +14,9 @@ from pre_system_svea.controller import Controller
 from file_explorer.seabird.paths import SBEPaths
 
 from ..events import subscribe
+from .locales import Translator
 
+_ = Translator('page_start', 'en').lang.gettext
 
 class PageStart(tk.Frame):
 
@@ -59,24 +61,24 @@ class PageStart(tk.Frame):
 
     def _create_frame(self):
 
-        self.notebook = tkw.NotebookWidget(self, frames=['Välj CTD', 'Försystem (Inför station / På station)'], place=(.5, .5))
-        self.notebook.set_state('normal', 'Välj CTD', rest='disabled')
+        self.notebook = tkw.NotebookWidget(self, frames=[_('Välj CTD'), _('Försystem (Inför station / På station)')], place=(.5, .5))
+        self.notebook.set_state('normal', _('Välj CTD'), rest='disabled')
         layout = dict(padx=20, pady=20, sticky='nsew')
 
-        self._frame_select_instrument = frames.FrameSelectInstrument(self.notebook.get_frame('Välj CTD'),
+        self._frame_select_instrument = frames.FrameSelectInstrument(self.notebook.get_frame(_('Välj CTD')),
                                                                      self.controller,
                                                                      main_app=self.main_app)
         self._frame_select_instrument.grid(row=0, column=0, **layout)
 
         tkw.grid_configure(self)
-        tkw.grid_configure(self.notebook.get_frame('Välj CTD'))
+        tkw.grid_configure(self.notebook.get_frame(_('Välj CTD')))
 
         self._update_frame_manage_ctd_casts()
 
-        self.notebook.select_frame('Välj CTD')
+        self.notebook.select_frame(_('Välj CTD'))
 
     def _update_frame_manage_ctd_casts(self):
-        frame = self.notebook.get_frame('Försystem (Inför station / På station)')
+        frame = self.notebook.get_frame(_('Försystem (Inför station / På station)'))
         layout = dict(padx=10, pady=10, sticky='nsew')
 
         try:
@@ -104,19 +106,19 @@ class PageStart(tk.Frame):
         tkw.grid_configure(frame)
 
     def _on_select_instrument(self, *args):
-        self.notebook.set_state('disabled', 'Försystem (Inför station / På station)')
+        self.notebook.set_state('disabled', _('Försystem (Inför station / På station)'))
 
     def _on_confirm_sensors(self, *args):
         instrument = self._frame_select_instrument.instrument
         if not instrument:
             return
         if instrument == self._current_instrument:
-            self.notebook.set_state('normal', 'Försystem (Inför station / På station)')
-            self.notebook.select_frame('Försystem (Inför station / På station)')
+            self.notebook.set_state('normal', _('Försystem (Inför station / På station)'))
+            self.notebook.select_frame(_('Försystem (Inför station / På station)'))
             return
         self._current_instrument = instrument
         self._update_frame_manage_ctd_casts()
 
-        self.notebook.set_state('normal', 'Försystem (Inför station / På station)')
-        self.notebook.select_frame('Försystem (Inför station / På station)')
+        self.notebook.set_state('normal', _('Försystem (Inför station / På station)'))
+        self.notebook.select_frame(_('Försystem (Inför station / På station)'))
 
